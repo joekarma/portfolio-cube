@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cube Interface</title>
+    <style type="text/css">
+      body {
+        background-color: #201040;
+      }
+      
+      #cube-container {
+        position: fixed;
+        -webkit-perspective: 2000px;
+        -moz-perspective: 2000px;
+        width: 400px; height: 400px;
+      }
+      
+      #cube {
+        position: absolute;
+        top: 200px; left: 200px;
+        width: 300px; height: 300px;
+        -webkit-transform-style: preserve-3d;
+        -webkit-transition: -webkit-transform 2s;
+        -moz-transform-style: preserve-3d;
+        -moz-transition: -moz-transform 2s;      
+      }
+      
+      #cube.first {
+        -webkit-transform: none;
+        -moz-transform: none;
+      }
+      
+      #cube.second {
+        -webkit-transform: rotateY(-90deg); /* top */
+        -moz-transform: rotateY(-90deg); /* top */
+      }
+      
+      #cube.third {
+        -webkit-transform: rotateX(90deg); /* left */
+        -moz-transform: rotateX(90deg); /* left */
+      }
+      
+      #cube.fourth {
+        -webkit-transform: rotateY(90deg); /* bottom */
+        -moz-transform: rotateY(90deg); /* bottom */
+      }
+      
+      #cube.fifth {
+        -webkit-transform: rotateX(-90deg); /* right */
+        -moz-transform: rotateX(-90deg); /* right */      
+      }
+      
+      #cube.sixth {
+        -webkit-transform: rotateY(180deg); /* back */
+        -moz-transform: rotateY(180deg); /* back */      
+      }
+      
+      .face {
+        position: absolute;
+        top: 0; left: 0;
+        width: 260px; height: 260px;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+      }
+      
+      iframe {
+        background-color: white;
+        width: 520px; height: 520px;
+        -webkit-transform: scaleX(0.5) scaleY(0.5) translateX(-50%) translateY(-50%);
+        -moz-transform: scaleX(0.5) scaleY(0.5) translateX(-50%) translateY(-50%);      
+        border: 0; padding: 0; margin: 0; opacity: 0.8; overflow: none;
+      }
+
+      .back {
+        -webkit-transform: rotateY(180deg) translateZ(300px);
+        -moz-transform: rotateY(180deg) translateZ(300px);      
+      }
+      
+      .right {
+        -webkit-transform: rotateY(90deg) translateZ(150px) translateX(150px);
+        -moz-transform: rotateY(90deg) translateZ(150px) translateX(150px);      
+      }
+      
+      .bottom {
+        -webkit-transform: rotateX(-90deg) translateZ(150px) translateY(150px);
+        -moz-transform: rotateX(-90deg) translateZ(150px) translateY(150px);      
+      }
+      
+      .left {
+        -webkit-transform: rotateY(-90deg) translateZ(150px) translateX(-150px);
+        -moz-transform: rotateY(-90deg) translateZ(150px) translateX(-150px);      
+      }
+      
+      .top {
+        -webkit-transform: rotateX(90deg) translateZ(150px) translateY(-150px);
+        -moz-transform: rotateX(90deg) translateZ(150px) translateY(-150px);      
+      }
+      
+      .front {
+        -webkit-transform: rotateX(0deg);
+        -moz-transform: rotateX(0deg);      
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cube-container">
+    <div id="cube">
+      <div class="face front"><iframe src="http://www.h4ck.co/"></iframe></div>
+      <div class="face back"><iframe src="http://www.c0de.co/"></iframe></div>
+      <div class="face left"><iframe src="http://www.mister778.com"></iframe></div>
+      <div class="face right"><iframe src="http://www.istodayaholiday.ca"></iframe></div>
+      <div class="face bottom"><iframe src="http://www.overturn.it"></iframe></div>
+      <div class="face top"><iframe src="http://www.onerandomwinner.com"></iframe></div>
+    </div>
+    </div>
+    
+    <script type="text/javascript">
+      var cube = document.querySelector("#cube");
+      
+      var classes = ["second", "third", "fourth", "fifth", "sixth", "first"];
+      var i = 0;
+      
+      document.onkeydown = function() {
+        cube.className = classes[(i++) % classes.length];
+      };
+   
+    </script>
+  </body>
+</html>
